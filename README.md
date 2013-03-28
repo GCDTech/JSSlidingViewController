@@ -102,7 +102,7 @@ BOOL useBouncyAnimations
 
 ###Ambidexterity: Left- or Right-hand opening?
 
-JSSLidingViewController defaults to opening from left to right, revealing the back view on the left-hand side. It has a property which can be set to reveal the back view on the right:
+JSSlidingViewController defaults to opening from left to right, revealing the back view on the left-hand side. It has a property which can be set to reveal the back view on the right:
 
 ```
 BOOL revealFromRight
