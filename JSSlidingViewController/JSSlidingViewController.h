@@ -28,6 +28,7 @@ extern NSString * const JSSlidingViewControllerWillBeginDraggingNotification;
 @property (nonatomic, assign) BOOL allowManualSliding;
 @property (assign, nonatomic) BOOL useBouncyAnimations;
 @property (assign, nonatomic) BOOL shouldTemporarilyRemoveBackViewControllerWhenClosed;
+@property (nonatomic, assign) BOOL revealFromRight; // Defaults to NO; set to YES to display the back view controller on the right.
 
 - (id)initWithFrontViewController:(UIViewController *)frontVC backViewController:(UIViewController *)backVC;
 - (void)closeSlider:(BOOL)animated completion:(void (^)(void))completion;

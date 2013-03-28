@@ -100,6 +100,16 @@ By default, JSSlidingViewController uses a “bouncy” animation style when the
 BOOL useBouncyAnimations
 ```
 
+###Ambidexterity: Left- or Right-hand opening?
+
+JSSLidingViewController defaults to opening from left to right, revealing the back view on the left-hand side. It has a property which can be set to reveal the back view on the right:
+
+```
+BOOL revealFromRight
+```
+
+This currently only affects programmatic opening and closing of the slider. Manual operation via the scroll view will take some more thought on the initialisation sequence of the class.
+
 
 ## Delegate Protocol
 
