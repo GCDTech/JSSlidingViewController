@@ -576,11 +576,14 @@ NSString * const JSSlidingViewControllerWillBeginDraggingNotification = @"JSSlid
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (_isOpen == YES && _locked == NO) {
+	
+	if (_isOpen == YES && _locked == NO) {
+		CGFloat horizontalTransformation = self.revealFromRight ? -1.f : 1.f;
+		
         CGRect rect = _slidingScrollView.frame;
-        rect.origin.x = 0;
+        rect.origin.x = _sliderOpeningWidth * horizontalTransformation;
         _slidingScrollView.frame = rect;
-        _slidingScrollView.contentOffset = CGPointMake(0, 0);
+        _slidingScrollView.contentOffset = CGPointMake((self.revealFromRight ? _sliderOpeningWidth : 0), 0);
         if (self.invisibleCloseSliderButton) {
             [self.invisibleCloseSliderButton removeFromSuperview];
             self.invisibleCloseSliderButton = nil;
@@ -608,12 +611,15 @@ NSString * const JSSlidingViewControllerWillBeginDraggingNotification = @"JSSlid
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    if (_isOpen == YES && _locked == NO) {
+	
+	if (_isOpen == YES && _locked == NO) {
+		CGFloat horizontalTransformation = self.revealFromRight ? -1.f : 1.f;
+		
         if (self.invisibleCloseSliderButton == nil) {
             [self addInvisibleButton];
         }
         CGRect rect = _slidingScrollView.frame;
-        rect.origin.x = _sliderOpeningWidth;
+        rect.origin.x = _sliderOpeningWidth * horizontalTransformation;
         _slidingScrollView.frame = rect;
         _slidingScrollView.contentOffset = CGPointMake(_sliderOpeningWidth, 0);
     }
